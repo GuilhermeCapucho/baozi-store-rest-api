@@ -13,15 +13,6 @@ Projeto desenvolvido para a atividade pratica de Desenvolvimento Web Back-End.
 - Packages `model`, `repository` e `controller`
 - CRUD REST para `Cliente`, `Produto` e `Pedido`
 
-## Estudo de caso para o PDF
-
-A Baozi Store e uma pequena loja que vende pao chines.
-Para melhorar a organizacao do negocio, foi criado um sistema simples para controlar clientes, produtos e pedidos.
-Um cliente chamado `GuilhermeCapucho4753105` realizou seu cadastro no sistema.
-O produto vendido pela loja chama-se `Baozi Tradicional de Porco` e e vendido por unidade.
-Em um determinado momento, o cliente realizou um pedido de `3` unidades do produto.
-O sistema registra o cliente, o produto comprado e a quantidade solicitada, facilitando o controle da loja.
-
 ## Entidades criadas
 
 ### Cliente
