@@ -1,3 +1,5 @@
+![UNINTER](https://logodownload.org/wp-content/uploads/2020/02/uninter-logo-2.png)
+
 # Baozi Store REST API
 
 Projeto desenvolvido para a atividade pratica de Desenvolvimento Web Back-End.
