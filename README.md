@@ -82,12 +82,28 @@ No Windows:
 .\mvnw.cmd spring-boot:run
 ```
 
+Com Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+- A API sobe em `http://localhost:8080` e o MySQL em `localhost:3306`.
+- A API usa H2 por padrao fora do Docker e MySQL no Compose via variaveis de ambiente
+
 ## Banco H2
 
 - URL: `jdbc:h2:mem:baozistore`
 - Console: `http://localhost:8080/h2-console`
 - JDBC URL: `jdbc:h2:mem:baozistore`
 - User: `sa`
+
+## Banco MySQL
+
+- JDBC URL: `jdbc:mysql://localhost:3306/baozistore`
+- Database: `baozistore`
+- User: `baozi`
+- Password: `baozi`
 
 ## Dados iniciais
 

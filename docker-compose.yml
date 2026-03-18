@@ -1,0 +1,41 @@
+services:
+  db:
+    image: mysql:8.4
+    container_name: baozi-store-db
+    environment:
+      MYSQL_DATABASE: baozistore
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: baozi
+      MYSQL_PASSWORD: baozi
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: baozi-store-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/baozistore?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_DATASOURCE_USERNAME: baozi
+      SPRING_DATASOURCE_PASSWORD: baozi
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQL8Dialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
+      SPRING_SQL_INIT_MODE: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:
