@@ -1,0 +1,98 @@
+# Baozi Store REST API
+
+Projeto desenvolvido para a atividade pratica de Desenvolvimento Web Back-End.
+
+## Requisitos do PDF
+
+- Java
+- Spring Boot
+- Spring Data JPA
+- Banco relacional H2
+- JSON nos endpoints
+- Padrao MVC do Spring
+- Packages `model`, `repository` e `controller`
+- CRUD REST para `Cliente`, `Produto` e `Pedido`
+
+## Estudo de caso para o PDF
+
+A Baozi Store e uma pequena loja que vende pao chines.
+Para melhorar a organizacao do negocio, foi criado um sistema simples para controlar clientes, produtos e pedidos.
+Um cliente chamado `GuilhermeCapucho4753105` realizou seu cadastro no sistema.
+O produto vendido pela loja chama-se `Baozi Tradicional de Porco` e e vendido por unidade.
+Em um determinado momento, o cliente realizou um pedido de `3` unidades do produto.
+O sistema registra o cliente, o produto comprado e a quantidade solicitada, facilitando o controle da loja.
+
+## Entidades criadas
+
+### Cliente
+
+- `id: Long`
+- `nome: String`
+- `clienteDesde: LocalDate`
+
+### Produto
+
+- `id: Long`
+- `nome: String`
+- `preco: BigDecimal`
+- `estoque: Boolean`
+
+### Pedido
+
+- `id: Long`
+- `clienteId: Long`
+- `produtoId: Long`
+- `quantidade: Integer`
+
+## Endpoints implementados
+
+### Clientes
+
+- `POST /clientes`
+- `GET /clientes`
+- `GET /clientes/{id}`
+- `PUT /clientes/{id}`
+- `DELETE /clientes/{id}`
+
+### Produtos
+
+- `POST /produtos`
+- `GET /produtos`
+- `GET /produtos/{id}`
+- `PUT /produtos/{id}`
+- `DELETE /produtos/{id}`
+
+### Pedidos
+
+- `POST /pedidos`
+- `GET /pedidos`
+- `GET /pedidos/{id}`
+- `PUT /pedidos/{id}`
+- `DELETE /pedidos/{id}`
+
+## Como executar
+
+```bash
+./mvnw spring-boot:run
+```
+
+No Windows:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+## Banco H2
+
+- URL: `jdbc:h2:mem:baozistore`
+- Console: `http://localhost:8080/h2-console`
+- JDBC URL: `jdbc:h2:mem:baozistore`
+- User: `sa`
+
+## Dados iniciais
+
+O projeto sobe com um cliente, um produto e um pedido pre-cadastrados em `src/main/resources/data.sql`.
+
+## Postman
+
+A collection do postman esta em `src/main/resources/postman/baozi-store.postman_collection.json`.
